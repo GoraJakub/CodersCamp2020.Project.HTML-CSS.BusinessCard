@@ -11,12 +11,20 @@
     padding:0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background: black;
+}
+a{
+    text-decoration: none;
 }
 
 .container{
     width: 100%;
     min-height: 100vh;
     background-color: var(--light);
+    animation: containerFadeIn 1.5s ease-out;
 }
 
 /* Navbar Mobile start */
@@ -30,6 +38,8 @@
     background-color: var(--gray);
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
+    animation: MnavIn 0.5s ease-out 1s forwards;
+    transform: translateY(100%);
 }
 
 .navbar__item--text{
@@ -53,7 +63,7 @@
     justify-content: center;
     text-decoration: none;
     color: var(--dark);
-    font-size: 1.2rem;
+    font-size: 1.2em;
 }
 .navbar__item img{
     width:30%;
@@ -90,18 +100,22 @@
     background: #ccc5b938;
     position: absolute;
     top:50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scaleY(0);
     padding:20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: MheaderBlockIn 0.5s ease-out .5s forwards;
+    transform-origin: center center;
 }
 
 .header__block--name{
-    font-size:3.5rem;
+    font-size:3.5em;
     color:var(--light);
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+    opacity: 0;
+    animation: MheaderNameIn 0.5s ease-out 1s forwards;
 }
 
 .header__block--desc{
@@ -109,17 +123,40 @@
     color:var(--light);
     font-size: 1.3rem;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+    animation: MheaderDescIn 0.5s ease-out 1s forwards;
+    opacity: 0;
 }
 
 .header__block--desc::before{
     content: "<";
-    font-size:1.5rem;
+    font-size:1.5em;
     margin-right: -5px;
 }
 .header__block--desc::after{
     content: "/>";
-    font-size:1.5rem;
+    font-size:1.5em;
 }
+
+.header__block__icons{
+    margin-top:20px;
+    font-size:3em;
+    animation: MheaderDescIn 0.5s ease-out 1s forwards;
+    opacity: 0;
+    width:70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__block__icons a{
+    color:var(--light);
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+}
+
+.header__block--arrow{
+    display: none;
+}
+
+/* Header Mobile End */
 
 @media (min-width: 1025px){
     /* Navbar Desktop Start*/
@@ -148,6 +185,8 @@
         grid-template-columns: 55% repeat(4,1fr);
         grid-gap: 20px;
         padding:10px;
+        transform: translateY(-100%);
+        animation: DnavIn 0.5s ease-out 1s forwards;
     }
     .navbar__item:last-child a{
         color:var(--orange);
@@ -166,6 +205,10 @@
         bottom: 7px;
         transform: translateX(100%);
         transition: all .3s ease-out;
+    }
+
+    .home a::before{
+        width:0%;
     }
     .navbar__item a:hover::before{
         transform: translateX(0);
@@ -189,5 +232,194 @@
         filter: blur(5px);
     }
 
+    .header__block{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "name links"
+        "desc links";
+        padding:25px 50px 25px;
+        font-size: 23px;
+        animation: DheaderBlockIn 0.5s ease-out .5s forwards;
+    }
 
+    .header__block::before,.header__block::after{
+        content: "";
+        position: absolute;
+        height: calc(100% - 50px);
+        width:5px;
+        background-color: var(--orange);
+    }
+    .header__block::before{
+        left:20px;
+    }
+    .header__block::after{
+        right:20px;
+    }
+
+    .header__block--name{
+        grid-area: name;
+        align-self: end;
+    }
+    .header__block--desc{
+        grid-area: desc;
+        align-self: start;
+    }
+    .header__block__icons{
+        grid-area: links;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-evenly;
+        width:100%;
+        height: 100%;
+        margin-top:0;
+        font-size: 2em;
+        
+    }
+    .header__block__icons a{
+        transition: all 0.3s ease-out;
+        position: relative;
+    }
+
+    .header__block__icons a::before{
+        content: "";
+        font-size:1.2rem;
+        position: absolute;
+        left:-110px;
+        top:50%;
+        transform: translateY(-50%);
+        transition: opacity 0.3s;
+        opacity: 0;
+    }
+
+    .header__block__icons .fbLink:hover::before{
+        content: "Facebook";
+        opacity: 1;
+    }
+    .header__block__icons .gitLink:hover::before{
+        content: "Github";
+        opacity: 1;
+        left: -80px;
+    }
+    .header__block__icons a:hover{
+        transform: translateY(-10px);
+    }
+
+    .header__block--arrow{
+        position: absolute;
+        display: block;
+        bottom: 0px;
+        width:100vw;
+        left: 0px;
+        height: 70px;
+        text-align: center;
+        color:white;
+        font-size:3rem;
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+       
+    }
+    .header__block--arrow i{
+        opacity: 0;
+        animation: DarrowFadeIn 1.2s ease-out 1.5s, Darrow 1.2s ease-out 2.7s infinite;
+    }
+
+}
+
+/* Animations Mobile*/
+
+
+@keyframes McontainerFadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes MheaderNameIn{
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes MheaderDescIn{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes MnavIn{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes MheaderBlockIn{
+    0%{
+        transform: translateY(-50%) scaleY(0);
+    }
+    100%{
+        transform: translateY(-50%) scaleY(1);
+    }
+}
+
+/* Animations Desktop */
+
+@keyframes DnavIn{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes DheaderBlockIn{
+    0%{
+        transform: translateY(-50%) scaleX(0);
+    }
+    100%{
+        transform: translateY(-50%) scaleX(1);
+    }
+}
+
+@keyframes DarrowFadeIn{
+    0%{
+        opacity: 0;
+        transform: translate(0,-30px);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(0,20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0,-30px);
+    }
+   
+}
+
+@keyframes Darrow{
+    0%,100%{
+        opacity: 1;
+        transform: translate(0,-30px);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(0,20px);
+    }
 }
