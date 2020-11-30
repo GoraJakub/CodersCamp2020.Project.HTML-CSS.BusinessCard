@@ -25,6 +25,7 @@ a{
     min-height: 100vh;
     background-color: var(--light);
     animation: containerFadeIn 1.5s ease-out;
+    margin-bottom: 50px;
 }
 
 /* Navbar Mobile start */
@@ -40,6 +41,7 @@ a{
     grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
     animation: MnavIn 0.5s ease-out 1s forwards;
     transform: translateY(100%);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.479);
 }
 
 .navbar__item--text{
@@ -53,6 +55,7 @@ a{
 
 .home{
     background-color: var(--darkgray);
+    border-radius: 5px;
 }
 
 .navbar a{
@@ -154,9 +157,110 @@ a{
 
 .header__block--arrow{
     display: none;
+    z-index: 2;
 }
 
 /* Header Mobile End */
+
+/* About Mobile Start */
+
+.about{
+    min-height: 100vh;
+    width:100%;
+    background: var(--gray);
+    display:grid;
+    grid-template-rows: 70px 1fr 2fr;
+    grid-template-areas: 
+    "header"
+    "photo"
+    "text";
+    align-items: center;
+    padding:20px;
+    overflow: hidden;
+}
+
+.about__header{
+    grid-area: header;
+    position: relative;
+    height: 50px;
+    font-size:2em;
+    display: flex;
+    align-items: center;
+    justify-self: left;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+    color:var(--light);
+}
+
+.about__header::before{
+    content:"";
+    height: 100%;
+    left:-30px;
+    width:25px;
+    background-color:var(--orange);
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
+}
+
+.about__header::after{
+    content:"";
+    height: 100%;
+    left:105%;
+    width:100vw;
+    background-color:var(--orange);
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
+}
+
+.about__image{
+    justify-self: center;
+    grid-area: photo;
+    border-radius: 50%;
+    width:255px;
+    height: 255px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
+}
+
+.about__text{
+    grid-area: text;
+    width:100%;
+    background: var(--light);
+    border-radius: 8px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.479);
+    padding:20px;
+}
+
+.about__text__list{
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.about__text__list--item{
+    font-size:1.2em;
+    line-height: 1.5em;
+}
+
+.about__text__list--item span{
+    font-weight: 600;
+}
+
+
+.about__text p,.about__text__list{
+    position: relative;
+}
+
+.about__text p::before,.about__text__list::before{
+    content: "";
+    position: absolute;
+    left:-25px;
+    width: 5px;
+    height: 100%;
+    background-color: var(--orange);
+    border-radius: 2px;
+}
+
+/* About Mobile End */
 
 @media (min-width: 1025px){
     /* Navbar Desktop Start*/
@@ -187,6 +291,7 @@ a{
         padding:10px;
         transform: translateY(-100%);
         animation: DnavIn 0.5s ease-out 1s forwards;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
     }
     .navbar__item:last-child a{
         color:var(--orange);
@@ -323,6 +428,68 @@ a{
         animation: DarrowFadeIn 1.2s ease-out 1.5s, Darrow 1.2s ease-out 2.7s infinite;
     }
 
+    /* About Desktop Start */
+
+    .about{
+        grid-template-rows: 70px 1fr;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+        "header header"
+        "photo text";
+        grid-row-gap: 20px;
+        height: 50vh;
+    }
+
+    .about__header{
+        justify-self: center;
+    }
+
+    .about__header::before{
+        width:50vw;
+        left:calc(-50vw - 10px);
+    }
+
+    .about__header::after{
+        left: calc(100% + 10px);
+    }
+
+    .about__image{
+        align-self: center;
+        justify-self: center;
+        border-radius:10px;
+        animation: floatImage 2s infinite ease-in-out;
+    }
+
+    
+
+
+    .about__text{
+        min-height: 50%;
+        align-self: center;
+        display: flex;
+        width:90%;
+        border-radius:10px;
+    }
+
+    .about__text__list{
+        width:50%;
+        align-self: center;
+    }
+
+    .about__text p{
+        width:50%;
+        display: flex;
+        align-items: center;
+        margin-left:25px;
+    }
+    .about__text__list::before{
+        content: none;
+    }
+
+
+
+    /* About Desktop End */
+
 }
 
 /* Animations Mobile*/
@@ -421,5 +588,16 @@ a{
     50%{
         opacity: 1;
         transform: translate(0,20px);
+    }
+}
+
+@keyframes floatImage{
+    0%,100%{
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.479);
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-30px);
+        box-shadow: 0px 35px 25px 5px rgba(0, 0, 0, 0.479);
     }
 }
