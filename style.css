@@ -263,6 +263,11 @@ a{
 /* About Mobile End */
 
 @media (min-width: 1025px){
+
+    .container{
+        margin-bottom: 0;
+    }
+
     /* Navbar Desktop Start*/
     .navbar__item img{
         display:none;
@@ -438,6 +443,7 @@ a{
         "photo text";
         grid-row-gap: 20px;
         height: 50vh;
+        margin-bottom: 0;
     }
 
     .about__header{
