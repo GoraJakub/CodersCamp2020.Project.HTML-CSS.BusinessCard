@@ -164,10 +164,23 @@ a{
 
 /* Header Mobile End */
 
+/* Mobile Scroll Anchors */
+
+.about .about__scrollAnchor,
+.skills .skills__scrollAnchor,
+.portfolio .portfolio__scrollAnchor{
+    position: absolute;
+    top:0px;
+    right: 0;
+    width:100%;
+    height: 70px;
+}
+
 /* About Mobile Start */
 
 .about{
     /* max-height: 100vh; */
+    position: relative;
     width:100%;
     background: var(--gray);
     display:grid;
@@ -182,6 +195,7 @@ a{
     font-size: 3vw;
     color:var(--light);
 }
+
 
 .about__header{
     grid-area: header;
@@ -272,6 +286,7 @@ a{
 
 /* Skills Mobile Start */
 .skills{
+    position: relative;
     width:100%;
     max-height: 100vh;
     background: var(--gray);
@@ -284,7 +299,6 @@ a{
 }
 
 .skills__header{
-    grid-area: header;
     position: relative;
     height: 50px;
     font-size:1.5em;
@@ -417,6 +431,137 @@ a{
 
 
 /* Skills Mobile End */
+
+
+/* Portfolio Mobile Start */
+.portfolio{
+    position: relative;
+    width:100%;
+    max-height: 100vh;
+    background: var(--gray);
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    font-size:4vw;
+}
+
+.portfolio__header{
+    position: relative;
+    height: 50px;
+    font-size:1.5em;
+    display: flex;
+    align-items: center;
+    justify-self: left;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
+    align-self: flex-start;
+    color:var(--light);
+}
+
+.portfolio__header::before{
+    content:"";
+    height: 3vw;
+    right:105%;
+    width:100vw;
+    background-color:var(--orange);
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
+}
+
+.portfolio__header::after{
+    content:"";
+    height: 3vw;
+    left:105%;
+    width:100vw;
+    background-color:var(--orange);
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.479);
+}
+
+.portfolio__block{
+    width:100%;
+    height: 100%;
+    margin-top:20px;
+    background: var(--darkgray);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.479);
+    padding: 20px;
+}
+
+.portfolio__block__project{
+    margin-top:20px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--light);
+}
+
+.portfolio__block__project img{
+    width:100%;
+}
+
+.portfolio__block__project__img{
+    position: relative;
+    margin-top:20px;
+}
+
+.portfolio__block__project__img::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--orange) , transparent);
+}
+
+.fa-eye{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left: 20%;
+    color: var(--light);
+    font-size:2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fa-eye::after{
+    content: 'Live';
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    bottom:-20px;
+    font-size:0.5em;
+    font-weight: 400;
+}
+
+.portfolio__block__project__img .fa-github{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right: 20%;
+    color: var(--light);
+    font-size:2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.portfolio__block__project__img .fa-github::after{
+    content: 'Github';
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    bottom:-20px;
+    font-size:0.5em;
+}
+
+/* Portfolio Mobile End */
 
 @media (min-width: 1024px){
     .container{
@@ -591,6 +736,7 @@ a{
     /* About Desktop Start */
 
     .about{
+        position: relative;
         grid-template-rows: 70px 1fr;
         grid-template-columns: 1fr 2fr;
         grid-template-areas: 
@@ -601,6 +747,19 @@ a{
         margin-bottom: 0;
         font-size:16px;
         padding: 0px 20px 50px 20px;
+    }
+
+    /* Desktop Scroll Anchors */
+
+
+    .about .about__scrollAnchor,
+    .skills .skills__scrollAnchor,
+    .portfolio .portfolio__scrollAnchor{
+        position: absolute;
+        top:-70px;
+        right: 0;
+        width:100%;
+        height: 70px;
     }
 
     .about__header{

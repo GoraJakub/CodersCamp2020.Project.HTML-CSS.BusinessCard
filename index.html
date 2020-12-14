@@ -9,12 +9,12 @@
     <title>Wizytówka | Jakub Góra</title>
     <meta name="description" content="Strona single page pełniąca role wizytówki oraz projektu w CodersCamp">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="icon" href="img/home.png"></link>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -22,13 +22,13 @@
     <section class="container" id="top">
         <nav class="navbar">
             <div class="navbar__item">
-               <a href="#about">
+               <a href="#aboutScroll">
                    <span class="navbar__item--text">O mnie</span> 
                    <img src="./img/about.png" alt="About">
                 </a> 
             </div>
             <div class="navbar__item">
-                <a href="#skills">
+                <a href="#skillsScroll">
                     <span class="navbar__item--text">Umiejętności</span>
                     <img src="./img/pencil.png" alt="Skills">
                 </a>
@@ -39,7 +39,7 @@
                 </a>
             </div>
             <div class="navbar__item">
-                <a href="#">
+                <a href="#portfolioAnchor">
                     <span class="navbar__item--text">Portfolio</span>
                     <img src="./img/portfolio.png" alt="Portfolio">
                 </a>
@@ -65,11 +65,12 @@
                 </div>
                
             </div>
-            <a href="#about" class="header__block--arrow">
+            <a href="#aboutScroll" class="header__block--arrow">
                 <i class='fa fa-angle-down'></i>
             </a>
         </header>
-        <section class="about" id="about">
+        <section class="about">
+            <div class="about__scrollAnchor" id="aboutScroll"></div>
             <h2 class="about__header">O mnie</h2>
             <img src="./img/avatar.png" alt="Avatar" class="about__image">
             <div class="about__text">
@@ -85,7 +86,8 @@
                 </p>
             </div>
         </section>
-        <section class="skills" id="skills">
+        <section class="skills">
+            <div class="skills__scrollAnchor" id="skillsScroll"></div>
             <h2 class="skills__header">Umiejętności</h2>
             <div class="skills__block">
                 <div class="skills__block__section skills__block__section--frontend">
@@ -104,6 +106,20 @@
                         <i class="fab fa-php"></i>                    
                         <i class="fas fa-database"></i>                    
                         <i class="fab fa-node"></i>                    
+                </div>
+            </div>
+        </section>
+        <section class="portfolio">
+            <div class="portfolio__scrollAnchor" id="portfolioAnchor"></div>
+            <h2 class="portfolio__header">Portfolio</h2>
+            <div class="portfolio__block">
+                <div class="portfolio__block__project">
+                    <h3>Wizytówka</h3>
+                    <div class="portfolio__block__project__img">
+                        <img src="img/wizytowka.jpeg" alt="Wizytówka">
+                        <a href="https://gorajakub.github.io/CodersCamp2020.Project.HTML-CSS.BusinessCard/"><i class="fas fa-eye"></i></a>
+                        <a href="https://github.com/GoraJakub/CodersCamp2020.Project.HTML-CSS.BusinessCard"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
