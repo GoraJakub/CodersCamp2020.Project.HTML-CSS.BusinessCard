@@ -1,8 +1,7 @@
 :root{
-    --light: #252422;
-    --lightgray: #ece5d7;
-    --gray: #403d39;
     --darkgray: #252422;
+    --light: #ece5d7;
+    --gray: #403d39;
     --orange: #eb5e28;
 }
 
@@ -12,7 +11,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
-    /* color:var(--lightgray); */
+    /* color:var(--light); */
 }
 body{
     background: black;
@@ -25,7 +24,7 @@ a{
 .container{
     width: 100%;
     min-height: 100vh;
-    background-color: var(--light);
+    background-color: var(--darkgray);
     animation: containerFadeIn 1.5s ease-out;
     margin-bottom: 6vh;
 }
@@ -67,7 +66,7 @@ a{
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color:var(--lightgray);
+    color:var(--light);
     font-size: 1.2em;
 }
 .navbar__item img{
@@ -118,7 +117,7 @@ a{
 
 .header__block--name{
     font-size:3.5em;
-    color:var(--lightgray);
+    color:var(--light);
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
     opacity: 0;
     animation: MheaderNameIn 0.5s ease-out 1s forwards;
@@ -126,7 +125,7 @@ a{
 
 .header__block--desc{
     font-family: Consolas;
-    color:var(--lightgray);
+    color:var(--light);
     font-size: 1.2em;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
     animation: MheaderDescIn 0.5s ease-out 1s forwards;
@@ -154,7 +153,7 @@ a{
 }
 
 .header__block__icons a{
-    color:var(--lightgray);
+    color:var(--light);
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
 }
 
@@ -181,7 +180,7 @@ a{
     padding:20px;
     overflow: hidden;
     font-size: 3vw;
-    color:var(--lightgray);
+    color:var(--light);
 }
 
 .about__header{
@@ -193,7 +192,7 @@ a{
     align-items: center;
     justify-self: left;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
-    color:var(--lightgray);
+    color:var(--light);
 }
 
 .about__header::before{
@@ -230,7 +229,7 @@ a{
 .about__text{
     grid-area: text;
     width:100%;
-    background: var(--light);
+    background: var(--darkgray);
     border-radius: 8px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.479);
     padding:20px;
@@ -294,7 +293,7 @@ a{
     justify-self: left;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.384);
     align-self: flex-end;
-    color:var(--lightgray);
+    color:var(--light);
 }
 
  .skills__header::before{
@@ -323,7 +322,7 @@ a{
     width:100%;
     height: 100%;
     margin-top:20px;
-    background: var(--light);
+    background: var(--darkgray);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -355,7 +354,7 @@ a{
 .skills__block__section__header{
     flex:0 100%;
     height: 50px;
-    color:var(--lightgray);
+    color:var(--light);
 }
 
 .skills__block__section__header code{
@@ -388,6 +387,10 @@ a{
 .fa-database{
     color: #00758F;
     position: relative;
+}
+
+.fa-node{
+    color: #6cc24a;
 }
 /* .fa-database::after{
     content: "MySql";
@@ -679,6 +682,8 @@ a{
         align-self: flex-start;
     }
 
+
+
     .skills__block__section--frontend::after{
         right:0;
         top:50%;
@@ -724,9 +729,14 @@ a{
         content: "MySQL";
     }
 
+    .skills__block__section .fa-node::after{
+        content: "NodeJS";
+    }
+
     .skills__block__section i{
         flex: 1;
     }
+
     .skills__block__section i:hover{
         transform: translateY(-20px);
     }
@@ -734,6 +744,7 @@ a{
     .skills__block__section i:hover::after{
         animation: McontainerFadeIn 0.3s ease-in 0.3s forwards;
     }
+
 
     /* Skills Desktop End */
 
