@@ -55,7 +55,7 @@ Strona posiada formularz kontaktowy. (Nie działający)
 RWD zostało zrealizowane za pomocą media queries. 
 
 ```
-$ @media (min-width: 1024px){...}
+@media (min-width: 1024px){...}
 ```
 
 
