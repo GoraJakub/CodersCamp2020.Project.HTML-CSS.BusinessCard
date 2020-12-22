@@ -180,7 +180,6 @@ a{
 /* About Mobile Start */
 
 .about{
-    /* max-height: 100vh; */
     position: relative;
     width:100%;
     background: var(--gray);
@@ -743,7 +742,6 @@ textarea.contact__block__form__input:not(:focus):valid ~ .contact__block__form__
     background: var(--orange);
     text-align: center;
     color:var(--light);
-    /* line-height: 70px; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -1247,12 +1245,12 @@ textarea.contact__block__form__input:not(:focus):valid ~ .contact__block__form__
     }
 
     .contact__block__form__input:focus ~ .contact__block__form__span,
-.contact__block__form__input:not(:focus):valid ~ .contact__block__form__span { 
+    .contact__block__form__input:not(:focus):valid ~ .contact__block__form__span { 
     top:0px;
     font-size:0.8em;
     transform: translateY(10px);
     color:var(--orange);
-}
+    }
     /* Contact Desktop End */
 
 }
